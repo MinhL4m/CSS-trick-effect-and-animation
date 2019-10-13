@@ -1,0 +1,18 @@
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* set background img on the text itself */
+h1 {
+	font-size: 15vw;
+	background-image: url(https://unsplash.it/700);
+	background-size: cover;
+	/* background clip to clip the img to the text */
+	background-clip: text;
+	-webkit-background-clip: text;
+	/* Since the color is black, we can't see the img */
+	color: transparent;
+}

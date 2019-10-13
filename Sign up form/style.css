@@ -1,0 +1,182 @@
+* {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-color: rgba(218, 34, 255, 0.1);
+}
+
+/* ------For the form into mid of the page, this is the bigger wrapper -----*/
+#wrapper {
+	width: 90%;
+	height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* The smaller container, the flex will affect this one, not the element inside it */
+.form-container {
+	width: 100%;
+	max-width: 40rem;
+	background: #fff;
+	/* have to use relative for the background */
+	position: relative;
+	padding: 10rem 0;
+	box-shadow: 0 1px 1.5rem rgba(0, 0, 0, 0.1);
+	border-radius: 1rem;
+	z-index: 1;
+}
+
+/* for the background color of the smaller container */
+/* before create a child of form-container and insert it before the form-container content */
+.form-container::before {
+	content: '';
+	/* absolute on the relative  */
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* since it is absolute on the relative, 100% here will be the form-container width */
+	width: 100%;
+	height: 30rem;
+	background: linear-gradient(to left, #fc6767, #ec008c);
+	border-bottom-right-radius: 100%;
+	border-bottom-left-radius: 100%;
+	/* need z-index = -1 to bring the color to background */
+	z-index: -1;
+}
+
+.form-heading {
+	color: #fff;
+	font-size: 2.5rem;
+	position: absolute;
+	top: 3.5rem;
+	left: 10rem;
+}
+
+/* ------form itself----- */
+form {
+	transform: translateX(10rem);
+	padding: 2rem 0;
+	background-color: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 1px 1.5rem rgba(0, 0, 0, .1);
+}
+
+/* --------input part---------- */
+.input-group {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+	/* for the icon inline with the input */
+	display: flex;
+	align-items: baseline;
+}
+
+.input-group input {
+	position: relative;
+	width: 100%;
+	padding: 1rem 0;
+	margin-top: .5rem;
+	border: none;
+	outline: none;
+	font: 1.8rem;
+	color: #fc6767;
+}
+
+/* The reason use > becasue we don't want to also select button i */
+.input-group > i {
+	font-size: 2rem;
+	margin-right: 1rem;
+	color: #fc6767;
+}
+
+/* ------for the focus effect--------- */
+.input-group .bar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .1);
+	width: 100%;
+	height: 1px;
+}
+
+/* transition use ms */
+.input-group .bar::before {
+	content: '';
+	position: absolute;
+	background-color: #fc6767;
+	width: 0;
+	height: 2px;
+	transition: width 650ms;
+}
+
+/* The focus effect */
+/* the + sign mean: when the input is focus, I want my bar to extend 100% */
+.input-group input:focus + .bar::before {
+	width: 100%;
+}
+
+/* ----button---- */
+.input-group button {
+	margin: 3rem auto;
+	padding: 1rem 5rem;
+	background: linear-gradient(to left, #fc6767, #ec008c);
+	border: none;
+	color: white;
+	font-size: 2.5rem;
+	cursor: pointer;
+	border-radius: 3rem;
+}
+
+/* button hover effect */
+.input-group button:focus,
+.input-group button:hover {
+	background: linear-gradient(to right, #fc6767, #ec008c);
+}
+
+/* ----already account link---- */
+.switch-login {
+	text-align: center;
+}
+
+.switch-login a {
+	text-decoration: none;
+	color: #a1a1a1;
+	font-size: 1.5rem;
+}
+
+.switch-login a span {
+	color: #fc6767;
+}
+
+.switch-login a span {
+	padding-bottom: 2px;
+	border-bottom: 2px solid #fc6767;
+}
+
+/* ----mobile responsive----- */
+@media screen and (max-width: 786px) {
+	.form-container::before {
+		height: 10rem;
+	}
+
+	.form-heading {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	form {
+		border-radius: initial;
+		transform: initial;
+		box-shadow: none;
+	}
+}

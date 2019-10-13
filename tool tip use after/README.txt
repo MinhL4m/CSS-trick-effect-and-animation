@@ -1,0 +1,4 @@
+- use ::after
+- create attribute and use it value in css. (attri())
+- use if :hover then ::after appear
+- white-space:nowrap to make the text take as much as space it need

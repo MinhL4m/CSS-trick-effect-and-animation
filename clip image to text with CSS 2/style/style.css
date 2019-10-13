@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* header background */
+    background-image: linear-gradient(50deg, #000 50%, transparent 50%);
+}
+
+h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* background for h1 opposite with header */
+    background-image: linear-gradient(50deg, #fff 50%, #000 50%);
+    color: transparent;
+
+    /* add animation */
+    animation: startAnimation 1s;
+    animation-timing-function: cubic-bezier(.48,.44,.67,1.2);
+    
+}
+
+@keyframes startAnimation{
+    0%{
+        transform: scale(.2);
+        opacity: .3;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: rgb(139,62,85);
+    font-family: 'Poppins', sans-serif;
+}
+
+a,
+button{
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropdown{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+/* set the whole div (button and list) relative */
+.product, 
+.project{
+    position: relative;
+}
+
+/* just the list, not the button */
+/* the list is now absolute to the div relative */
+.project ul, 
+.product ul{
+    position: absolute;
+    list-style: none;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    /* make the list look align */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    background: white;
+    border-radius: 5px;
+
+    /* make it invinsible */
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:  all 0.4s ease;
+}
+
+/* links */
+.product a,
+.project a{
+    color: black;
+    text-decoration: none;
+}
+
+.project li, 
+.product li{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
+}
+
+.product li:hover,
+.project li:hover{
+    background-color: rgb(218, 179, 191);
+}
+
+
+/* buttons */
+
+.dropdown button, .home{
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dropdown button:hover 
+,.home:hover{
+    color: rgb(224,244,244);
+}
+
+/* animation event */
+/* if the button inside class project get focus, ul will get these css */
+.project button:focus +  ul,
+.product button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0); 
+}

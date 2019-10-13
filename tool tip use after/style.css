@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+a[data-tool-tip] {
+    position: relative;
+    color: red;
+    font-size: 1.5rem;
+}
+
+a[data-tool-tip]::after {
+    /* use the value of data-tool-tip attribute in <a> */
+    content: attr(data-tool-tip);
+
+    position: absolute;
+    background: black;
+    border-radius: 0.8rem;
+    padding: 0.8rem 0.8rem;
+    color: white;
+    bottom: 100%;
+    left: 0;
+    font-size: 1rem;
+
+    /* for the letter take as much as space it need */
+    white-space: nowrap;
+
+    /* since it still a part of a link, it can be click. scale(0) make it 
+    unclickable */
+    transform: scale(0);
+}
+
+/* if :hover a then ::after of a will appear */
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+}

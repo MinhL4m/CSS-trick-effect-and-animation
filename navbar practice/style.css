@@ -1,0 +1,140 @@
+/*Make sure include this in every css file*/
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+nav {
+	/* using flex box for nav container */
+	display: flex;
+	justify-content: space-around;
+	/* align item center to make space between items equal: top, botom, left and right */
+	align-items: center;
+	min-height: 8vh;
+	background-color: #5d4954;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* LOGO */
+.logo {
+	color: rgb(224, 220, 220);
+	text-transform: uppercase;
+	/* good to notice: using letter spacing to make logo */
+	letter-spacing: 5px;
+	font-size: 20px;
+}
+
+/* LINK */
+.nav-link {
+	display: flex;
+	/* need width setting to use justify-content, justify content doesnt automatic 
+    adjust width. */
+	width: 40%;
+	justify-content: space-around;
+}
+
+.nav-link li {
+	list-style: none;
+}
+
+.nav-link a {
+	color: rgb(224, 220, 220);
+	text-decoration: none;
+	letter-spacing: 3px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* BURGER for mobile responsive */
+.burger div {
+	width: 25px;
+	height: 3px;
+	background-color: rgb(224, 220, 220);
+    margin: 5px;
+    display: block;
+    /* this for animation the burger */
+    transition: all 0.3s ease;
+}
+
+.burger{
+    display: none;
+}
+
+/* TABLET responsive 
+This change the width to 60% to make the nav link look better when get to 1024px*/
+@media screen and (max-width:1024px){
+    .nav-link {
+        display: flex;
+        width: 60%;
+        justify-content: space-around;
+    }
+}
+
+/* MOBILE responsive */
+@media screen and (max-width:768px){
+    /* body{
+        /* use display none to check if the web look good before small 
+        enough to 768 px */
+        /* display:none;} */
+    .nav-link{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        /* nav min-hight is 8vh , this mean it will be under nav*/
+        top: 8vh;
+        background-color: #5d4954;
+        display:flex;
+        flex-direction: column;
+        /* we chaneg the direction so we have to use align item */
+        align-items: center;
+        width: 50%;
+        /*move the whole nav-link of the screen on the right side*/
+        transform: translateX(100%);
+
+        /* good to notice:
+        don't want it appear 0s.
+        specific what element change(transform) */
+        transition: transform 0.5s ease-in;
+    }
+
+    /* overflow-x hidden to hide the transformX(100%), this 
+    make the user can't scrold right and left */
+    body{
+        overflow-x: hidden;
+    }
+
+    .nav-link li{
+        /* for amimation affect, the text will fade in */
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.nav-active{
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transfrom: transformX(50px);
+    }to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}

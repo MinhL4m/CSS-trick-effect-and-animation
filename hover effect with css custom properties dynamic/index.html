@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card" style="--x: 0; --y:0">
+        <h1>Testing this</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, fugiat aspernatur mollitia ducimus
+            veniam explicabo minus. Officiis rerum libero molestiae dolorem? Quae qui non eligendi explicabo optio amet
+            voluptatum omnis!</p>
+    </div>
+</body>
+<script>
+    document.querySelector('.card').onmousemove = (e) => {
+        console.log(e);
+        // e is event and it has these properties
+
+        const x = e.pageX - e.target.offsetLeft;
+        const y = e.pageY - e.target.offsetTop;
+        // offset is from the topleft of the page to the border container of the element
+        // từ biên màn hình - <phần từ biên màn hình tới border của element> = vị trí pixel trong element
+        // ta làm v để có thể đặt đc x và y trong element và từ đó background-image: radial-gradient(circle at var(--x) var(--y), #5de7ff, #0092ec 100%);
+
+
+        e.target.style.setProperty('--x', `${x}px`);
+        e.target.style.setProperty('--y', `${y}px`);
+
+
+    }
+</script>
+
+</html>

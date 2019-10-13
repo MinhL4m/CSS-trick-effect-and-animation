@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+    margin-top: 30vh;
+}
+
+/* for all button */
+.btn{
+    border: 1px solid #3498db;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    /* this for the before using absolute */
+    position: relative;
+    /* this for the before only show in the button area */
+    overflow: hidden;
+    
+}
+
+/* ------Text color for btn when normal and hover-------- */
+.btn1, .btn2{
+    color:#3498db;
+}
+
+.btn3, .btn4{
+    color: #ffffff;
+}
+
+.btn1:hover,.btn2:hover{
+    color: #ffffff;
+}
+
+.btn3:hover,.btn4:hover{
+    color: #3498db;
+}
+
+/* -------Set before and after------- */
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0; 
+    height: 0%;
+    width: 100%;
+    background: #3498db;
+    z-index: -1;
+    /* important to set transition for before */
+    transition: 0.8s
+}
+
+/* ------------Set hover effect for before---------- */
+/* ---Set where to start and shape of before--- */
+.btn1::before, .btn3::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn2::before, .btn4::before{
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+/* --Make the before become background-- */
+.btn3::before,.btn4::before{
+    height: 180%;
+}
+
+/* ---Hover effect--- */
+.btn1:hover::before, .btn2:hover::before{
+    height: 180%;
+}
+
+.btn3:hover::before, .btn4:hover::before{
+    height: 0;
+}
+

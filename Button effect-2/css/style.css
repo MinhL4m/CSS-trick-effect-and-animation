@@ -1,0 +1,181 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+
+
+/* btn background need to be transparent  in order to use these tricks*/
+.btn{
+    display: inline-block;
+    font-size: 1.7rem;
+    padding: 1.5rem 2.1rem;
+    border: solid 0.5rem #313131;
+    margin-right: 3rem;
+    margin-top: 3rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    background-color: transparent;
+    transition: color .9s;
+    outline: none;
+}
+
+.btn:hover{
+    color: #fff;
+}
+
+/* btn number 1 use clip-path: circle */
+.eff-1::before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    clip-path: circle(0% at 0 0);
+    background: #ca3e47;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .8s;
+}
+
+.eff-1:hover::before{
+    clip-path: circle(200% at 0 0);
+}
+
+
+/* btn number 2 use scale and translate (translate is to center it)*/
+
+.eff-2::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #ca3e47;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: all .8s;
+    z-index: -1;
+}
+
+.eff-2:hover::before{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+/* btn number 3 use cli-path  pologon*/
+
+.eff-3::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #ca3e47;
+    position: absolute;
+    right: 0;
+    top: 0;
+    clip-path: polygon(100% 1%, 100% 1%, 100% 100%, 100% 100%);
+    z-index: -1;
+}
+
+.eff-3:hover::before{
+    animation: btn3 .6s alternate;
+    /* animation-fill-mode use for force the element use the last keyframe styel */
+    animation-fill-mode: forwards;
+}
+
+@keyframes btn3{
+    50%{
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    }
+    
+    100%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+
+/* Roll number 2 Eff4*/
+.row{
+    display: flex;
+    background: #e9e9e9;
+    height: 30vh;
+    text-align: center;
+    /* z-index: -1; */
+    justify-content: center;
+    align-items: center;
+}
+
+.eff-4{
+    padding: 2.2rem 3rem;
+    font-size: 1.9rem;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 0;
+    background: #313131;
+    outline: none;
+    
+    position: relative;
+    box-shadow: .3rem .3rem .8rem rgba(0,0,0, .8);
+    transition: all .2s;
+    
+}
+
+
+
+.eff-4::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    clip-path: circle(0% at 0 0);
+    background: #ca3e47;
+    z-index: -4;
+    transition: all .7s;
+}
+
+.eff-4:hover::before{
+    clip-path: circle(200% at 0 0);
+}
+
+.eff-4:hover{
+    box-shadow: .6rem .6rem 1rem rgba(0,0,0, .8);
+}
+
+.eff-4:active{
+    box-shadow: .2rem .2rem .8rem rgba(0,0,0, 1);
+}
+
+/* Roll Number 3 Eff-5: use background position to move background-img */
+/* background img is not effect by transition therefore we need to use background position */
+
+.eff-5{
+    font-size: 1.8rem;
+    padding: 2.2rem 3rem;
+    border: none;
+    background-image: linear-gradient(to right, #01024e, #543864, #8b4367, #ff6464);
+    transition: all 1s;
+    background-size: 300%;
+    color: white;
+    background-position: right;
+    cursor: pointer;
+    
+}
+
+.eff-5:hover, .eff-5:active{
+    background-position: left;
+}
+    

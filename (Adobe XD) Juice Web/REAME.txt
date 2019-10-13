@@ -1,0 +1,25 @@
+URL: https://www.youtube.com/watch?v=UZY9FYe7u6I
+
+1080: is a little bit too big. This project use custome size: 1440x1024
+
+- rename each page for management purpose
+- The outside (white) part is not important, we can include nav, logo, footer. The (green) part is more important (main content), so we will focus on that part 
+--> why do this? add theme, and narrow down the focus for the user.
+- Dont use so many color in one page
+- we can stack component on top each other
+
+- TRICK (WARNING): never copy paste the img or text inside the Rectangle we draw. Since the img will be limit or expand (if to small) to fit the rectangle. However, if we want the long text just sit inside some area, we can use this method
+
+- TRICK: to group component(for example button and text): Shift select border and the text, control + G --> text and border become 1 component
+
+- TRICK: copy component. hold alt and drag 
+
+- TRICK: to turn on the grind 12 columns for position purpose, select the page (over all, the biggest that store other components inside), go to grid section, click on checkbox next to layout.
+
+- WARNING: for animation, if there are something from old frame that still keep on new frame, they need to have same name
+
+- TRICK: set the animation is auto-animate. 
+
+- TRICK: to from one frame to another frame without click, select the whole frame then connect it with another frame that you want to go to.
+
+- WARNING: for animation, if the element has the same name for 2 frame, it will auto animate. For example to make it pop up like in this project, the element when drag outside the screen still need some part touch the border of the screen to indicate it belong to the screen.
